@@ -1,0 +1,14 @@
+{
+	"manifest_version": 2,
+	"name": "Tugowar's AOC Forum Extension",
+	"version": "0.0.5",
+	"all_frames": true,
+	"description": "Make the colors a little more pleasing",
+	"run_at": "document_end",
+	"content_scripts": [{
+		"css": ["friendly-background.css"],
+		"js": ["friendly-background.js"],
+		"matches": ["https://forums.ashesofcreation.com/*", "http://forums.ashesofcreation.com/*" ]
+	}],
+	"web_accessible_resources": ["friendly-background.css"]
+}
