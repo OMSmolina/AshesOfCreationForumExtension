@@ -4,11 +4,12 @@
 	"version": "0.0.5",
 	"all_frames": true,
 	"description": "Make the colors a little more pleasing",
-	"run_at": "document_end",
+    "web_accessible_resources": [
+        "light-theme.css",
+		"wider-theme.css"
+    ],
 	"content_scripts": [{
-		"css": ["friendly-background.css"],
-		"js": ["friendly-background.js"],
+		"js": ["cohort-gaming-mod.js"],
 		"matches": ["https://forums.ashesofcreation.com/*", "http://forums.ashesofcreation.com/*" ]
-	}],
-	"web_accessible_resources": ["friendly-background.css"]
+	}]
 }
