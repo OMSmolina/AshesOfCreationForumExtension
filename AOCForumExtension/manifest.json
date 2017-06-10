@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Tugowar's AOC Forum Extension",
-	"version": "0.0.5",
+	"version": "1.0.0",
 	"all_frames": true,
 	"description": "Make the colors a little more pleasing",
     "web_accessible_resources": [
