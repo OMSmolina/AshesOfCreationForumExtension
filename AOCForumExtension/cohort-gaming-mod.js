@@ -1,16 +1,29 @@
 console.log("Tugowar says hello!");
-
 /*
+///////////////////////////////////////////////////
+///		You can find the latest version at:		///
+///		http://cohortgaming.com/aoc-forums		///
+///////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////
+///		Configuration Options					///
+///////////////////////////////////////////////////
+
 Write in your theme.  Valid options are (it is case-sensitive):
 light
 wider
 */
-var Theme = 'light';  
+var Theme = 'wider';
 
 // If ShowSignatures = false, then signatures will be invisible by default.
 // You can press Ctrl + S to toggle showing signatures at any time.
-var ShowSignatures = false;
+var ShowSignatures = true;
 
+// Set a forum to true if you want to hide the forum in read mode
+var TheNewlyArrived = false;
+var Kickstarter = false;
+var Recruitment = false;
 
 /*  
 ///////////////////////////////////////////////////
@@ -68,7 +81,7 @@ function RewriteMessage()
 	var author = document.getElementsByClassName('Author');
 	var messages = document.getElementsByClassName('Message');
 	var d = document.getElementsByClassName('DateCreated');
-	var quote = document.getElementsByClassName('Quote');
+//	var quote = document.getElementsByClassName('Quote');
 
 	for( var i = 0; i < messages.length; i++ )
 	{
@@ -88,13 +101,19 @@ function RewriteMessage()
 			s.innerHTML = "<em> - wrote on " + d[i].innerHTML +"</em>";
 			obj.appendChild( s );
 			
-			// Create a object for the quote.
-			var a = document.createElement('a');
-			a.href = quote[i].href;
-			a.className = quote[i].className;
-			a.innerHTML = "<em> - " + quote[i].innerHTML + "</em>";
-			obj.appendChild( a );
-			
+			// If you're not signed in, then you can't quote...
+			// However, the length of quote isn't lining up 1:1 with the topics
+			// because the OT is a different class methinks
+/*			if( quote.length > 0 )
+			{
+				// Create a object for the quote.
+				var a = document.createElement('a');
+				a.href = quote[i].href;
+				a.className = quote[i].className;
+				a.innerHTML = "<em> - " + quote[i].innerHTML + "</em>";
+				obj.appendChild( a );
+			}
+*/			
 			// Create a span object for the date.
 			var s = document.createElement('span');
 			s.innerHTML = "<br />" + messages[i].innerHTML + "<br />";
@@ -163,10 +182,19 @@ window.addEventListener("keydown", function (e) {
 		e.preventDefault();
 		
 		console.log("in Ctrl D");
-		ToggleVisibility( 'Category-the-newly-arrived' );
-		ToggleVisibility( 'Category-ashes-creation-kickstarter' );
-		ToggleVisibility( 'Category-guild-recruitment' );
+		
+		// hide the forums we don't want to see.
+		if( ! TheNewlyArrived )
+			ToggleVisibility( 'Category-the-newly-arrived' );
+		if( ! Kickstarter )
+			ToggleVisibility( 'Category-ashes-creation-kickstarter' );
+		if( ! Recruitment )
+			ToggleVisibility( 'Category-guild-recruitment' );
+		
+		// when we're viewing topics, hide the reactions
 		ToggleVisibility( 'Reactions' );
+		
+		// hide the search bar
 		ToggleVisibility( 'masthead' );
 		ToggleSidebar(); // Keep sidebar visible before rewrite message; it's setting global var;
 		RewriteMessage();

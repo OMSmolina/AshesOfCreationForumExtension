@@ -3,7 +3,7 @@
 	"name": "Tugowar's AOC Forum Extension",
 	"version": "1.0.0",
 	"all_frames": true,
-	"description": "Make the colors a little more pleasing",
+	"description": "Make the AOC forums a little more pleasing.",
     "web_accessible_resources": [
         "light-theme.css",
 		"wider-theme.css"
