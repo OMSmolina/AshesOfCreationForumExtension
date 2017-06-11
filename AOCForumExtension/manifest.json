@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Tugowar's Ashes of Creation Forum Mod",
 	"short_name": "AOC Forum Mod",
-	"version": "0.9.3",
+	"version": "0.9.4",
 	"description": "Make the AOC forums more pleasing - cohortgaming.com/aoc-forums",
     "web_accessible_resources": [
         "light-theme.css",
