@@ -25,11 +25,17 @@ var TheNewlyArrived = false;
 var Kickstarter = false;
 var Recruitment = false;
 
-console.log( "theme before get: "+ Theme );
-chrome.storage.sync.get( "Theme",
-function(items) {
-	console.log( "theme: "+ Theme );
-});
+function GetGoogleStorage( callback ){	
+	chrome.storage.sync.get( {
+		Theme: 'wider',
+		ShowSignatures: true,
+		TheNewlyArrived: false,
+		Kickstarter: false,
+		Recruitment: false
+	},function(items) {
+		callback( items );
+	});
+}
 
 /*  
 ///////////////////////////////////////////////////
@@ -56,6 +62,37 @@ function ToggleSidebar()
 		main[0].style.width = '67.3913%';
 		ToggleVisibility( 'column-sidebar' );
 	}
+}
+
+/*
+/// Summary:  The toggle visibility fx is going to add or remove a custom CG-Hide 
+/// class to the element.
+/// The Class argument is referring to the parent class on the forum container 
+/// that we're applying our custom styling to.
+*/
+function ToggleVisibility( cls )
+{
+	// Get all the signature container divs
+	var el = document.getElementsByClassName( cls );
+	
+	for( var i = 0; i < el.length; i++ )
+	{
+		if( el[i].classList.contains( 'CG-Hide' ) )
+			el[i].classList.remove("CG-Hide");
+		else
+			el[i].className += el[i].className ? ' CG-Hide' : 'CG-Hide';
+	}
+}
+
+function HideForums( googleStorage )
+{
+	console.log( "Kickstarter: "+googleStorage.Kickstarter );
+	if( googleStorage.TheNewlyArrived )
+		ToggleVisibility( 'Category-the-newly-arrived' );
+	if( googleStorage.Kickstarter )
+		ToggleVisibility( 'Category-ashes-creation-kickstarter' );
+	if( googleStorage.Recruitment )
+		ToggleVisibility( 'Category-guild-recruitment' );
 }
 
 function RewriteMessage()
@@ -149,26 +186,6 @@ function RewriteMessage()
 }
 
 /*
-/// Summary:  The toggle visibility fx is going to add or remove a custom CG-Hide 
-/// class to the element.
-/// The Class argument is referring to the parent class on the forum container 
-/// that we're applying our custom styling to.
-*/
-function ToggleVisibility( cls )
-{
-	// Get all the signature container divs
-	var el = document.getElementsByClassName( cls );
-	
-	for( var i = 0; i < el.length; i++ )
-	{
-		if( el[i].classList.contains( 'CG-Hide' ) )
-			el[i].classList.remove("CG-Hide");
-		else
-			el[i].className += el[i].className ? ' CG-Hide' : 'CG-Hide';
-	}
-}
-
-/*
 /// We're going to build a few short cut keys: 
 /// CTRL+S - Toggle Signatures
 /// CTRL+R - This will toggle the right page.
@@ -195,12 +212,7 @@ window.addEventListener("keydown", function (e) {
 		console.log("in Ctrl+R");
 		
 		// hide the forums we don't want to see.
-		if( ! TheNewlyArrived )
-			ToggleVisibility( 'Category-the-newly-arrived' );
-		if( ! Kickstarter )
-			ToggleVisibility( 'Category-ashes-creation-kickstarter' );
-		if( ! Recruitment )
-			ToggleVisibility( 'Category-guild-recruitment' );
+		GetGoogleStorage( HideForums );
 		
 		// when we're viewing topics, hide the reactions
 		ToggleVisibility( 'Reactions' );
@@ -219,17 +231,30 @@ Run these commands on startup.
 */
 
 // link the custom CSS as a stylesheet to give it higher priority
-var cssPath = chrome.extension.getURL( Theme +'-theme.css');
-var link = document.createElement('link');
-link.href = cssPath;
-link.type = 'text/css';
-link.rel = 'stylesheet';
-document.getElementsByTagName("head")[0].appendChild(link);
+function Onload( googleStorage )
+{
+	var cssPath = chrome.extension.getURL( googleStorage.Theme +'-theme.css');
+	console.log( "cssPath "+cssPath );
+	var link = document.createElement('link');
+	link.href = cssPath;
+	link.type = 'text/css';
+	link.rel = 'stylesheet';
+	document.getElementsByTagName("head")[0].appendChild(link);
+	
+	if( ! googleStorage.ShowSignatures )
+		ToggleVisibility( 'Signature' );
+}
+// Call the Google values through a callback
+GetGoogleStorage( Onload );
 
 // change the phoenix to take you back to the mains ite
 var navbrand = document.getElementsByClassName('navbar-brand');
 navbrand.href = 'https://www.ashesofcreation.com';
 
-// turn off the signatures forum wide
-if( ! ShowSignatures )
-	ToggleVisibility( 'Signature' );
+
+// Container div
+var obj = document.createElement('div');
+obj.className = 'container';
+obj.innerHTML = '<a class="CG-Mod pull-right" href="http://cohortgaming.com/aoc-forums">Modded by Cohort Gaming</a>';
+document.getElementsByTagName("footer")[0].appendChild(obj);
+
