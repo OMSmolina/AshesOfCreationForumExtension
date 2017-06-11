@@ -1,8 +1,8 @@
 {
 	"manifest_version": 2,
-	"name": "Tugowar's AOC Forum Extension - Wider",
+	"name": "Tugowar's AOC Forum Extension",
 	"version": "0.9.0",
-	"description": "Make the AOC forums wider - cohortgaming.com/aoc-forums",
+	"description": "Make the AOC forums more pleasing - cohortgaming.com/aoc-forums",
     "web_accessible_resources": [
         "light-theme.css",
 		"wider-theme.css"
@@ -11,5 +11,8 @@
 		"js": ["cohort-gaming-mod.js"],
 		"matches": ["https://forums.ashesofcreation.com/*", "http://forums.ashesofcreation.com/*" ]
 	}],
-	"update_url": "http://cohortgaming.com/assets/aoc/updates.xml"
+	"update_url": "http://cohortgaming.com/assets/aoc/updates.xml",
+	"icons": { "16": "icon16.png",
+           "48": "icon48.png",
+          "128": "icon128.png" }
 }
