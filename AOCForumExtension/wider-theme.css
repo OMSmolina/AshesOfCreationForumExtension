@@ -19,29 +19,3 @@ body, #vanilla_discussion_index, .index  {
 	width: 75px;
 }
 
-.container {
-	width: 90%;
-	max-width: 90% !important;
-	margin: 0 auto;
-}
-
-.CG-Hide {
-	display: none;
-}
-
-.CG-Item-Class {
-	background-color: #ff0000;
-}
-
-.Section-Discussion .container .site-content, .Section-Discussion .container .column-sidebar {
-	margin-top: 60px;
-}
-
-.CG-Messages {
-	padding: 10px;
-	border: 1px solid #ffffff;
-}
-
-.CG-Mod {
-	color: #c10000;
-}

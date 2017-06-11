@@ -86,7 +86,6 @@ function ToggleVisibility( cls )
 
 function HideForums( googleStorage )
 {
-	console.log( "Kickstarter: "+googleStorage.Kickstarter );
 	if( googleStorage.TheNewlyArrived )
 		ToggleVisibility( 'Category-the-newly-arrived' );
 	if( googleStorage.Kickstarter )
@@ -233,8 +232,14 @@ Run these commands on startup.
 // link the custom CSS as a stylesheet to give it higher priority
 function Onload( googleStorage )
 {
+	var cssPath = chrome.extension.getURL( 'cohort-gaming-theme.css');
+	var link = document.createElement('link');
+	link.href = cssPath;
+	link.type = 'text/css';
+	link.rel = 'stylesheet';
+	document.getElementsByTagName("head")[0].appendChild(link);
+	
 	var cssPath = chrome.extension.getURL( googleStorage.Theme +'-theme.css');
-	console.log( "cssPath "+cssPath );
 	var link = document.createElement('link');
 	link.href = cssPath;
 	link.type = 'text/css';
