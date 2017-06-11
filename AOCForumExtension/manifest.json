@@ -11,7 +11,12 @@
 		"js": ["cohort-gaming-mod.js"],
 		"matches": ["https://forums.ashesofcreation.com/*", "http://forums.ashesofcreation.com/*" ]
 	}],
-	"icons": { "16": "icon16.png",
-           "48": "icon48.png",
-          "128": "icon128.png" }
+	"icons": { 
+		"16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png" },
+	"options_ui": {
+		"page": "options.html",
+		"chrome_style": true
+	}
 }
