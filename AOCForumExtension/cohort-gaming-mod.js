@@ -54,7 +54,7 @@ function ToggleSidebar()
 
 function RewriteMessage()
 {
-	// If we have been spamming ctrl+z, then get rid of the old cg-slims.
+	// If we have been spamming ctrl+r, then get rid of the old cg-slims.
 	var elements = document.getElementsByClassName('CG-Slim');
 	while (elements.length > 0) elements[0].remove();
 
@@ -64,6 +64,7 @@ function RewriteMessage()
 	ToggleVisibility('CommentForm');
 
 	// Remove the Avatar image
+	// This is going to remove it from the top right too.  May deal with in a future release.
 	ToggleVisibility( 'ProfilePhoto' );
 	
 	var siteContent = document.getElementsByClassName('site-content');
@@ -81,6 +82,10 @@ function RewriteMessage()
 	var author = document.getElementsByClassName('Author');
 	var messages = document.getElementsByClassName('Message');
 	var d = document.getElementsByClassName('DateCreated');
+	
+	// If you're not signed in, then you can't quote...
+	// However, the length of quote isn't lining up 1:1 with the topics
+	// because the OT is a different class methinks
 //	var quote = document.getElementsByClassName('Quote');
 
 	for( var i = 0; i < messages.length; i++ )
@@ -101,9 +106,6 @@ function RewriteMessage()
 			s.innerHTML = "<em> - wrote on " + d[i].innerHTML +"</em>";
 			obj.appendChild( s );
 			
-			// If you're not signed in, then you can't quote...
-			// However, the length of quote isn't lining up 1:1 with the topics
-			// because the OT is a different class methinks
 /*			if( quote.length > 0 )
 			{
 				// Create a object for the quote.
@@ -123,6 +125,7 @@ function RewriteMessage()
 		}
 	}
 	
+	// This is the page number links on the thread.
 	var pager = document.getElementsByClassName('Pager');
 	if( pager.length > 0 )
 	{
@@ -130,9 +133,9 @@ function RewriteMessage()
 		paging.innerHTML = pager[0].innerHTML;
 		slimMessages.appendChild( paging );	
 	}
-	
-	var replyBox = document.getElementsByClassName( 'MessageForm' );
 
+	// The sidebarVisible flag is set if we are inside of read mode
+	// When we're in read mode, that's when we print our messages.
 	if( ! sidebarVisible )	
 		siteContent[0].appendChild( slimMessages );
 	
@@ -140,6 +143,8 @@ function RewriteMessage()
 }
 
 /*
+/// Summary:  The toggle visibility fx is going to add or remove a custom CG-Hide 
+/// class to the element.
 /// The Class argument is referring to the parent class on the forum container 
 /// that we're applying our custom styling to.
 */
@@ -160,8 +165,8 @@ function ToggleVisibility( cls )
 /*
 /// We're going to build a few short cut keys: 
 /// CTRL+S - Toggle Signatures
-/// CTRL+D - This will toggle the right page.
-///				If you are on the home page, it will hide the  Kickstarter, Lore, and Guild Recruitment forums.  
+/// CTRL+R - This will toggle the right page.
+///				If you are on the home page, you can select to hide specific categories with the flags.
 ///				If you are viewing a thread, it will collapse all of the text into a shorter format.
 */
 window.addEventListener("keydown", function (e) {
@@ -171,17 +176,17 @@ window.addEventListener("keydown", function (e) {
     {
 		e.preventDefault();
 		
-		console.log("in ctrl s");
+		console.log("in ctrl+s");
 		ToggleVisibility( 'Signature' );
 
         return false;
     } 
-	// CTRL+D - Toggle the slim features
-	else if ((e.key == 'd' || e.key == 'D' ) && (e.ctrlKey || e.metaKey))
+	// CTRL+R - Toggle the slim features
+	else if ((e.key == 'r' || e.key == 'R' ) && (e.ctrlKey || e.metaKey))
     {
 		e.preventDefault();
 		
-		console.log("in Ctrl D");
+		console.log("in Ctrl+R");
 		
 		// hide the forums we don't want to see.
 		if( ! TheNewlyArrived )
