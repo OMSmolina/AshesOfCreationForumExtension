@@ -25,6 +25,12 @@ var TheNewlyArrived = false;
 var Kickstarter = false;
 var Recruitment = false;
 
+console.log( "theme before get: "+ Theme );
+chrome.storage.sync.get( "Theme",
+function(items) {
+	console.log( "theme: "+ Theme );
+});
+
 /*  
 ///////////////////////////////////////////////////
 ///		Start the uneditable part 				///
