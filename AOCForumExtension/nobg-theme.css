@@ -1,11 +1,9 @@
 body, #vanilla_discussion_index, .index  {
-	background-image: url(https://www.ashesofcreation.com/wp-content/uploads/2017/06/forum-bg-new-6.jpg) !important; 
+	/* background-image: url(https://www.ashesofcreation.com/wp-content/uploads/2017/06/forum-bg-new-6.jpg) !important;  */
 	background-image: none;
 	background-position: fixed center top;
 	background-repeat: none;
-/*	background-color: #000 !important; 
-	color: #000 !important;
-	*/
+	background-color: #282828 !important; 
 }
 
 .navbar-brand {
