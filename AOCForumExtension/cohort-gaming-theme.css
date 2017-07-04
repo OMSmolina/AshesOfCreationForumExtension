@@ -1,0 +1,35 @@
+/*  This CSS is included in all themes.  You can override in individual themes if needed. */
+
+.navbar-brand {
+	display: block !important;
+	padding: 0px !important;
+}
+
+.navbar-brand img {
+	margin-top: 5px;
+	height: 50px;
+	width: 75px;
+}
+
+.container {
+	width: 90%;
+	max-width: 90% !important;
+	margin: 0 auto;
+}
+
+.CG-Hide {
+	display: none;
+}
+
+.CG-Item-Class {
+	background-color: #ff0000;
+}
+
+.CG-Messages {
+	padding: 10px;
+	border: 1px solid #000;
+}
+
+.CG-Mod {
+	color: #c10000;
+}

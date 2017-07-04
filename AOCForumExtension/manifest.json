@@ -2,17 +2,25 @@
 	"manifest_version": 2,
 	"name": "Tugowar's Ashes of Creation Forum Mod",
 	"short_name": "AOC Forum Mod",
-	"version": "0.9.3",
+	"version": "1.1.1",
 	"description": "Make the AOC forums more pleasing - cohortgaming.com/aoc-forums",
     "web_accessible_resources": [
+		"cohort-gaming-theme.css",
         "light-theme.css",
-		"wider-theme.css"
+		"wider-theme.css",
+		"nobg-theme.css"
     ],
 	"permissions": [
 		"storage"
 	],
 	"content_scripts": [{
-		"js": ["cohort-gaming-mod.js"],
+		"js": [
+			"cohort-gaming-mod.js",
+			"cohort-gaming-forum-class.js",
+			"cohort-gaming-forum-readmode.js",
+			"cohort-gaming-forum-blobmode.js",			
+			"cohort-gaming-onload.js"
+		],
 		"matches": ["https://forums.ashesofcreation.com/*", "http://forums.ashesofcreation.com/*" ]
 	}],
 	"icons": { 
