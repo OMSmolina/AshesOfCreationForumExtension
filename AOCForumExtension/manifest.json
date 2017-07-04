@@ -17,8 +17,7 @@
 		"js": [
 			"cohort-gaming-mod.js",
 			"cohort-gaming-forum-class.js",
-			"cohort-gaming-forum-readmode.js",
-			"cohort-gaming-forum-blobmode.js",			
+			"cohort-gaming-forum-writer.js",			
 			"cohort-gaming-onload.js"
 		],
 		"matches": ["https://forums.ashesofcreation.com/*", "http://forums.ashesofcreation.com/*" ]

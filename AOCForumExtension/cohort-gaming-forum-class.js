@@ -1,14 +1,5 @@
 
 var AOC = {
-
-	writeClass : 'CG-Slim',
-		
-	RemoveWrittenObjects: function ()
-	{
-		// If we have been spamming ctrl+r or ctrl+b, then get rid of the old write classes.
-		var elements = document.getElementsByClassName( this.writeClass );
-		while (elements.length > 0) elements[0].remove();
-	},
 	
 	// Prepare the browser for readmode or blob mode
 	ToggleExtras: function ()

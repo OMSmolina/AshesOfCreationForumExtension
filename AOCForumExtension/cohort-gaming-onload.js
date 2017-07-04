@@ -7,8 +7,6 @@
 /// CTRL+B - If you are viewing a forum post, this will convert all of the posts into 1 paragraph.
 */
 
-var forum = Object.create( AOC );
-
 window.addEventListener("keydown", function (e) {
 		
 	// CTRL+S - Toggle the visibility of signatures
@@ -17,7 +15,7 @@ window.addEventListener("keydown", function (e) {
 		e.preventDefault();
 		
 		console.log("in ctrl+s");
-		forum.ToggleVisibility( 'Signature' );
+		ForumWriter.ToggleVisibility( 'Signature' );
 
         return false;
     } 
@@ -28,9 +26,9 @@ window.addEventListener("keydown", function (e) {
 		console.log("in Ctrl+B");
 		
 		// hide everything
-		forum.ToggleExtras();
+		ForumWriter.ToggleExtras();
 		
-		WriteBlob( forum );
+		ForumWriter.WriteBlob();
         return false;
 	}
 	// CTRL+R - Toggle the slim features
@@ -41,12 +39,12 @@ window.addEventListener("keydown", function (e) {
 		console.log("in Ctrl+R");
 		
 		// hide the forums we don't want to see.
-		GetGoogleStorage( forum.ToggleForums );
+		GetGoogleStorage( ForumWriter.ToggleForums );
 		
 		// hide everything
-		forum.ToggleExtras();
+		ForumWriter.ToggleExtras();
 		
-		RewriteMessage( forum );
+		ForumWriter.RewriteMessage();
         return false;
 	}
     return true;
@@ -84,8 +82,9 @@ function Onload( googleStorage )
 	document.getElementsByTagName("head")[0].appendChild(link);
 
 	if( ! googleStorage.ShowSignatures )
-		forum.ToggleVisibility( 'Signature' );
+		ForumWriter.ToggleVisibility( 'Signature' );
 }
+
 // Call the Google values through a callback
 GetGoogleStorage( Onload );
 
