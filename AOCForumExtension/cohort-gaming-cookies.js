@@ -1,3 +1,5 @@
+// i need to add this file to the manifest.
+
 chrome.cookies.get({ url: 'https://forums.ashesofcreation.com' },
   function (cookie) {
     if (cookie) {

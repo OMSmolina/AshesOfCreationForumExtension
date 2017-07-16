@@ -25,6 +25,7 @@ var ShowSignatures = true;
 var TheNewlyArrived = false;
 var Kickstarter = false;
 var Recruitment = false;
+var Off = false;
 
 // The sidebar is referring to the "my discussion", "who's online", etc. bar.
 // This var is being used as a global var across forum-class and readmode/blobmode
@@ -36,7 +37,8 @@ function GetGoogleStorage( callback ){
 		ShowSignatures: true,
 		TheNewlyArrived: false,
 		Kickstarter: false,
-		Recruitment: false
+		Recruitment: false,
+		Off: false
 	},function(items) {
 		callback( items );
 	});

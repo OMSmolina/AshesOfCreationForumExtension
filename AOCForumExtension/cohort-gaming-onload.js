@@ -31,6 +31,19 @@ window.addEventListener("keydown", function (e) {
 		ForumWriter.WriteBlob();
         return false;
 	}
+	// CTRL+Q - Toggle the extension off
+	else if ((e.key == 'q' || e.key == 'Q' ) && (e.ctrlKey || e.metaKey))
+    {
+		e.preventDefault();	
+		console.log("You've turned the extension off.  You have to go into options to turn it back on.");
+		
+		// Set the extension to off
+		  chrome.storage.sync.set({
+			Off: true
+		  }, function() {
+		  });  
+        return false;
+	}
 	// CTRL+R - Toggle the slim features
 	else if ((e.key == 'r' || e.key == 'R' ) && (e.ctrlKey || e.metaKey))
     {
@@ -69,6 +82,10 @@ Run these commands on startup.
 // link the custom CSS as a stylesheet to give it higher priority
 function Onload( googleStorage )
 {
+	// If off is true, they don't want to load the extension...
+	if( googleStorage.Off )
+		return;
+
 	var link = document.createElement('link');
 	link.href = chrome.extension.getURL( 'cohort-gaming-theme.css' );
 	link.type = 'text/css';
@@ -90,7 +107,14 @@ GetGoogleStorage( Onload );
 
 // change the phoenix to take you back to the mains ite
 var navbrand = document.getElementsByClassName('navbar-brand');
-navbrand.href = 'https://www.ashesofcreation.com';
+//navbrand.href = 'https://www.ashesofcreation.com';
+
+// Add some navigation after the phoenix
+var obj = document.createElement('span');
+obj.innerHTML = '<a class="CG-Nav" href="http://ashesofcreation.com">Home</a>';
+obj.innerHTML += '<a class="CG-Nav" href="http://forums.ashesofcreation.com">Forums</a>';
+obj.innerHTML += '<a class="CG-Nav" href="http://ashesofcreation.com/dashboard">Dashboard</a>';
+navbrand[0].appendChild(obj);
 
 // Container div
 var obj = document.createElement('div');

@@ -18,7 +18,6 @@
 	"content_scripts": [{
 		"js": [
 			"cohort-gaming-mod.js",
-			"cohort-gaming-cookies.js",
 			"cohort-gaming-forum-class.js",
 			"cohort-gaming-forum-writer.js",			
 			"cohort-gaming-onload.js"
