@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Tugowar's Ashes of Creation Forum Mod",
 	"short_name": "AOC Forum Mod",
-	"version": "1.1.2",
+	"version": "1.2.0",
 	"description": "Make the AOC forums more pleasing - cohortgaming.com/aoc-forums",
     "web_accessible_resources": [
 		"cohort-gaming-theme.css",
@@ -31,5 +31,10 @@
 	"options_ui": {
 		"page": "options.html",
 		"chrome_style": true
+	},
+	"applications": {
+		"gecko": {
+			"id": "cohortgaming.com@gmail.com"
+		}
 	}
 }
