@@ -122,3 +122,15 @@ obj.className = 'container CG-Mod';
 obj.innerHTML = '<a class="CG-Mod pull-right" href="http://cohortgaming.com/aoc-forums">Modded by Cohort Gaming</a>';
 document.getElementsByTagName("footer")[0].appendChild(obj);
 
+var anchors = document.getElementsByTagName('a');
+var intrepid = ['GM%20Sam', 'GMSteven', 'Trystan', 'dirkdiggler', 'Yaviey', 'numinae', 'ElectricSheep', 'Rykus', 'Anxious9', 'bogitwob', 'LordSnod', 'SpiritedWarrior', 'Optimistic'];
+for( var i = 0; i < anchors.length; i++ )
+{
+	intrepid.forEach(function(name, k, array) {
+		if( anchors[i].getAttribute('href') == '/profile/'+name && ! anchors[i].classList.contains("IndexPhoto") )
+		{
+			anchors[i].setAttribute("class", "CG-Admin");
+			return;			
+		}
+	});
+}

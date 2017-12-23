@@ -23,3 +23,12 @@ body, #vanilla_discussion_index, .index  {
 	padding: 10px;
 	border: 1px solid #fff;
 }
+
+/*  Change the bookmark links to have more contrast */
+li.Bookmarked a, li.Bookmarked div div a, li.Bookmarked div span a, li.Bookmarked div div span a, a.Bookmarked:before {
+	color: #c10000 !important;
+}
+
+li.Bookmarked a:hover, li.Bookmarked div div a:hover, li.Bookmarked div span a:hover, li.Bookmarked div div span a:hover {
+	color: #ffb612 !important;
+}

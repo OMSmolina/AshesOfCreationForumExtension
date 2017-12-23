@@ -38,3 +38,8 @@
 	padding-left: 15px; 
 	font-size: 14px;
 }
+
+/* Keep CG Admin and Moderator below the bookmarks */
+.CG-Admin {
+	color: #9549da !important;
+}

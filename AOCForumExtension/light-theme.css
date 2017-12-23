@@ -27,6 +27,15 @@ a {
 	color: #fff !important;
 }
 
+/*  Change the bookmark links to have more contrast */
+li.Bookmarked a, li.Bookmarked div div a, li.Bookmarked div span a, li.Bookmarked div div span a, a.Bookmarked:before {
+	color: #4341a7 !important;
+}
+
+li.Bookmarked a:hover, li.Bookmarked div div a:hover, li.Bookmarked div span a:hover, li.Bookmarked div div span a:hover {
+	color: #ffb612 !important;
+}
+
 .masthead {
 	background-color: #c4c4c4 !important; 
 /*	background-color: rgba( 196, 196, 196, 0.75 ) !important; */
