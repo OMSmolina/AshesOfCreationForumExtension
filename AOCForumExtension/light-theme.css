@@ -37,7 +37,7 @@ li.Bookmarked a:hover, li.Bookmarked div div a:hover, li.Bookmarked div span a:h
 }
 
 .masthead {
-	background-color: #c4c4c4 !important; 
+	background-color: #dedede !important;
 /*	background-color: rgba( 196, 196, 196, 0.75 ) !important; */
 /*  background: url(https://www.ashesofcreation.com/wp-content/uploads/2016/09/GM-1-Living-World-Housing-Sketch-1024x576.jpg) no-repeat center center fixed !important; 
   -webkit-background-size: cover;
@@ -47,16 +47,20 @@ li.Bookmarked a:hover, li.Bookmarked div div a:hover, li.Bookmarked div span a:h
 }
 
 .masthead h1, h1 .text-center, .site-content h1 {
-	color: #ffb612;
-	text-shadow: 1px 1px #888888;
+	color: #000;
+	/*text-shadow: 1px 1px #888888;*/
 }
 
 .DataList :nth-child(2n+1).Item {
-	background-color: #c4c4c4 !important;
+	background-color: #dedede !important;
 }
 
 .Item {
 	background-color: #ff0000;
+}
+
+.Item .Meta {
+	color: #808080;
 }
 
 .Section-Discussion .container .site-content, .Section-Discussion .container .column-sidebar {
@@ -73,6 +77,56 @@ li.Bookmarked a:hover, li.Bookmarked div div a:hover, li.Bookmarked div span a:h
 	margin-top: 50px;
 }
 
+.Tag {
+	background: #cecece;
+	border-radius: 2px;
+	color: #333;
+	padding: 1px 4px;
+	line-height: 14px;
+}
+
+
 .H, .Box h4 {
-	color: #000;
+	color: #000 !important;
+	/*text-shadow: 1px 1px #efef;*/
+}
+
+.CommentHeading {
+	color: #000 !important;
+	/*text-shadow: 1px 1px #efef;*/
+}
+
+.Count {
+	background-color: #e4e4e4;
+	border-radius: 3px;
+	color: #333;
+	font-size: 80%;
+	font-weight: normal;
+	padding: 1px .8ex;
+}
+
+.WhosOnline .Count {
+	margin-left: 10px;
+}
+
+.Author {
+	margin-right: 5px;
+}
+
+.AuthorInfo {
+	color: #808080 !important;
+}
+
+.Rank {
+	color:#000;
+	font-weight: bold;
+}
+
+.AuthorInfo .MItem {
+	margin-right: 4px;
+	margin-left: 4px;
+}
+
+.AdvancedSearch label {
+	color: #333;
 }
