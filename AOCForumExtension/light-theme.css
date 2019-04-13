@@ -7,6 +7,7 @@ body, #vanilla_discussion_index, .index  {
 	color: #000 !important;
 }
 
+/*
 .navbar {
 	position: fixed !important;
 	height: 60px;
@@ -22,6 +23,7 @@ body, #vanilla_discussion_index, .index  {
 a {
 	color: #C10000 !important; 
 }
+*/
 
 .Button {
 	color: #fff !important;
@@ -34,21 +36,6 @@ li.Bookmarked a, li.Bookmarked div div a, li.Bookmarked div span a, li.Bookmarke
 
 li.Bookmarked a:hover, li.Bookmarked div div a:hover, li.Bookmarked div span a:hover, li.Bookmarked div div span a:hover {
 	color: #ffb612 !important;
-}
-
-.masthead {
-	background-color: #dedede !important;
-/*	background-color: rgba( 196, 196, 196, 0.75 ) !important; */
-/*  background: url(https://www.ashesofcreation.com/wp-content/uploads/2016/09/GM-1-Living-World-Housing-Sketch-1024x576.jpg) no-repeat center center fixed !important; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
-}
-
-.masthead h1, h1 .text-center, .site-content h1 {
-	color: #000;
-	/*text-shadow: 1px 1px #888888;*/
 }
 
 .DataList :nth-child(2n+1).Item {

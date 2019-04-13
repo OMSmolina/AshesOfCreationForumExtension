@@ -8,17 +8,15 @@ function save_options() {
 	// get the answers
 	var Theme = document.getElementById('Theme').value;
 	var ShowSignatures = document.getElementById('ShowSignatures').checked;
-	var TheNewlyArrived = document.getElementById('TheNewlyArrived').checked;
-	var Kickstarter = document.getElementById('Kickstarter').checked;
-	var Recruitment = document.getElementById('Recruitment').checked;	
+	var PromotedContent = document.getElementById('PromotedContent').checked;
+	var Sidebar = document.getElementById('Sidebar').checked;
 	var Off = document.getElementById('Off').checked;	
 	
 	var setOptions = {
 		Theme: Theme,
 		ShowSignatures: ShowSignatures,
-		TheNewlyArrived: TheNewlyArrived,
-		Kickstarter: Kickstarter,
-		Recruitment: Recruitment,
+		PromotedContent: PromotedContent,
+		Sidebar: Sidebar,
 		Off: Off
 	  };
 	
@@ -45,16 +43,14 @@ function restore_options() {
   chrome.storage.sync.get({
 		Theme: 'wider',
 		ShowSignatures: true,
-		TheNewlyArrived: false,
-		Kickstarter: false,
-		Recruitment: false,
+		PromotedContent: false,
+		Sidebar: false,
 		Off: false
 	  }, function(items) {
 		document.getElementById('Theme').value = items.Theme;
 		document.getElementById('ShowSignatures').checked = items.ShowSignatures;
-		document.getElementById('TheNewlyArrived').checked = items.TheNewlyArrived;
-		document.getElementById('Kickstarter').checked = items.Kickstarter;
-		document.getElementById('Recruitment').checked = items.Recruitment; 
+		document.getElementById('PromotedContent').checked = items.PromotedContent;
+		document.getElementById('Sidebar').checked = items.Sidebar;
 		document.getElementById('Off').checked = items.Off; 
   });
   
@@ -62,5 +58,9 @@ function restore_options() {
 }
 
 document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click',
-    save_options);
+var sPath = window.location.pathname;
+var sPage = sPath.substring(sPath.lastIndexOf('/') + 1);
+if(sPage == "options.html"){
+	document.getElementById('save').addEventListener('click', save_options);
+}
+

@@ -34,22 +34,22 @@ var AOC = {
 		this.ToggleVisibility( 'ProfilePhoto' );
 	},
 
-	ToggleSidebar: function ()
+	ToggleSidebar: function ( cls )
 	{
-		var sidebar = document.getElementsByClassName('site-sidebar');	
-		var main = document.getElementsByClassName('column-content');
+		var main = document.getElementsByClassName('page-content');
+		var side = document.getElementsByClassName(cls);
 		
-		if( sidebarVisible )
+		if( Sidebar )
 		{
-			this.ToggleVisibility( 'column-sidebar' );
-			sidebar[0].classList.remove( 'column-sidebar' );
-			sidebarVisible = false;
-			main[0].style.width = '100%';
+			this.ToggleVisibility( cls );
+			side[0].style.width = "25%";
+			main[0].style.width = '75%';
+			Sidebar = false;
 		} else {
-			sidebar[0].className += sidebar[0].className ? ' column-sidebar' : 'column-sidebar';
-			sidebarVisible = true;
-			main[0].style.width = '67.3913%';
-			this.ToggleVisibility( 'column-sidebar' );
+			this.ToggleVisibility( cls );
+			main[0].style.width = '100%';
+			side[0].style.width = "0%";
+			Sidebar = true;
 		}
 	},
 

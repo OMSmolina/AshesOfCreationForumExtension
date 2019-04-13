@@ -6,17 +6,6 @@ body, #vanilla_discussion_index, .index  {
 	background-color: #282828 !important; 
 }
 
-.navbar-brand {
-	display: block !important;
-	padding: 0px !important;
-}
-
-.navbar-brand img {
-	margin-top: 5px;
-	height: 50px;
-	width: 75px;
-}
-
 .CG-Messages {
 	padding: 10px;
 	border: 1px solid #fff;

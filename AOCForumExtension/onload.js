@@ -6,7 +6,6 @@
 ///				If you are viewing a thread, it will collapse all of the text into a shorter format.
 /// CTRL+B - If you are viewing a forum post, this will convert all of the posts into 1 paragraph.
 */
-
 window.addEventListener("keydown", function (e) {
 		
 	// CTRL+S - Toggle the visibility of signatures
@@ -50,14 +49,17 @@ window.addEventListener("keydown", function (e) {
 		e.preventDefault();
 		
 		console.log("in Ctrl+R");
+	
+		ForumWriter.ToggleVisibility( 'promoted-content' );
+		ForumWriter.ToggleSidebar( 'page-sidebar' );
 		
 		// hide the forums we don't want to see.
-		GetGoogleStorage( ForumWriter.ToggleForums );
+//		GetGoogleStorage( ForumWriter.ToggleForums );
 		
 		// hide everything
-		ForumWriter.ToggleExtras();
+//		ForumWriter.ToggleExtras();
 		
-		ForumWriter.RewriteMessage();
+//		ForumWriter.RewriteMessage();
         return false;
 	}
     return true;
@@ -87,7 +89,7 @@ function Onload( googleStorage )
 		return;
 
 	var link = document.createElement('link');
-	link.href = chrome.extension.getURL( 'cohort-gaming-theme.css' );
+	link.href = chrome.extension.getURL( 'base-theme.css' );
 	link.type = 'text/css';
 	link.rel = 'stylesheet';
 	document.getElementsByTagName("head")[0].appendChild(link);
@@ -100,37 +102,11 @@ function Onload( googleStorage )
 
 	if( ! googleStorage.ShowSignatures )
 		ForumWriter.ToggleVisibility( 'Signature' );
+	if( ! googleStorage.PromotedContent )
+		ForumWriter.ToggleVisibility( 'promoted-content' );
+	if( ! googleStorage.Sidebar )
+		ForumWriter.ToggleSidebar( 'page-sidebar' );	
 }
 
 // Call the Google values through a callback
 GetGoogleStorage( Onload );
-
-// change the phoenix to take you back to the mains ite
-var navbrand = document.getElementsByClassName('navbar-brand');
-//navbrand.href = 'https://www.ashesofcreation.com';
-
-// Add some navigation after the phoenix
-var obj = document.createElement('span');
-obj.innerHTML = '<a class="CG-Nav" href="http://ashesofcreation.com">Home</a>';
-obj.innerHTML += '<a class="CG-Nav" href="http://forums.ashesofcreation.com">Forums</a>';
-obj.innerHTML += '<a class="CG-Nav" href="http://ashesofcreation.com/dashboard">Dashboard</a>';
-navbrand[0].appendChild(obj);
-
-// Container div
-var obj = document.createElement('div');
-obj.className = 'container CG-Mod';
-obj.innerHTML = '<a class="CG-Mod pull-right" href="http://cohortgaming.com/aoc-forums">Modded by Cohort Gaming</a>';
-document.getElementsByTagName("footer")[0].appendChild(obj);
-
-var anchors = document.getElementsByTagName('a');
-var intrepid = ['GM%20Sam', 'GMSteven', 'Trystan', 'dirkdiggler', 'Yaviey', 'numinae', 'ElectricSheep', 'Rykus', 'Anxious9', 'bogitwob', 'LordSnod', 'SpiritedWarrior', 'Optimistic'];
-for( var i = 0; i < anchors.length; i++ )
-{
-	intrepid.forEach(function(name, k, array) {
-		if( anchors[i].getAttribute('href') == '/profile/'+name && ! anchors[i].classList.contains("IndexPhoto") )
-		{
-			anchors[i].setAttribute("class", "CG-Admin");
-			return;			
-		}
-	});
-}
