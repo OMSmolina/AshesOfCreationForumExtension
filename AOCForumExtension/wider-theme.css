@@ -1,3 +1,9 @@
+.container {
+	width: 95%;
+	max-width: 95% !important;
+	margin: 0 auto;
+}
+
 body, #vanilla_discussion_index, .index  {
 	background-position: fixed center top;
 	background-repeat: none;

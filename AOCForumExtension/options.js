@@ -41,7 +41,7 @@ function restore_options() {
 
   // Use default value color = 'red' and likesColor = true.
   chrome.storage.sync.get({
-		Theme: 'wider',
+		Theme: 'small-impact',
 		ShowSignatures: true,
 		PromotedContent: false,
 		Sidebar: false,

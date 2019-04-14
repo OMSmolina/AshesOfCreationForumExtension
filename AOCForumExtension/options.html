@@ -10,45 +10,61 @@
 <body>
   Set your theme style:
   <select id="Theme">
-   <option value="wider">Wider</option>
-   <option value="light">Light</option>
-   <option value="nobg">No BG Image</option>
+   <option value="small-impact">Small Impact: Add quality of life changes without much else</option>
+   <option value="wider">Wider with background image</option>
+   <option value="nobg">Wider with no background image</option>
+   <option value="light">Light Theme</option>
   </select>
 
   <br /><br />
-  <label>
-    <input type="checkbox" id="ShowSignatures">
-    Show Signatures in the Forum
-  </label>
-  <br />
-  <label>
-    <input type="checkbox" id="PromotedContent">
-    Show Promoted Content on the top of the Forums
-  </label>
-  <br />
-  <label>
-    <input type="checkbox" id="Sidebar">
-    Show the Side Bar on the right of the forums
-  </label>
+  <table border="0" cellpadding="0" cellspacing="3">
+  <tr>
+	<td>
+		<label>
+			<input type="checkbox" id="ShowSignatures">
+			Show Signatures in the Forum 
+		</label>
+	</td>
+	<td>
+		(Remember you can always toggle on and off for the page you are viewing with Ctrl + S)
+	</td>
+  </tr>
+  <tr>
+	<td>
+		<label>
+			<input type="checkbox" id="PromotedContent">
+			Show Promoted Content on the top of the Forums 
+		  </label>
+	</td>
+	<td>
+		(You can toggle temporarily on with Ctrl+R)
+	</td>
+  </tr>
+  <tr>
+	<td>
+		<label>
+			<input type="checkbox" id="Sidebar">
+			Show the Side Bar on the right of the forums <br /><br />
+		  </label>
+	</td>
+	<td>
+		(You can toggle temporarily on with Ctrl+R)<br /><br />
+	</td>
+  </tr>
+  <tr>
+	<td>
+		<label>
+		    <input type="checkbox" id="Off"> Turn the extension off
+		  </label>
+	</td>
+	<td>
+		(Ctrl+Q)
+	</td>
+  </tr>
+ </table>  
   
-  <!--
-  <br /><br />
-  In read mode, hide the selected forums:<br />
-  <label>
-    <input type="checkbox" id="TheNewlyArrived"> The Newly Arrived
-  </label><br />
-  <label>
-    <input type="checkbox" id="Recruitment"> Guild Recruitment
-  </label><br />
- -->
-  <br />
-  <br />
-  <label>
-    <input type="checkbox" id="Off">
-    Turn the extension off.
-  </label>
-  
-  <br /><br /><br />
+<br />
+<br />
 
   <div id="status"></div>
   <button id="save">Save</button>

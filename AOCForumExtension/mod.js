@@ -12,10 +12,11 @@ console.log("Tugowar says hello!");
 
 Write in your theme.  Valid options are (it is case-sensitive):
 light
+small-impact
 wider
 nobg
 */
-var Theme = 'wider';
+var Theme = 'small-impact';
 
 // If ShowSignatures = false, then signatures will be invisible by default.
 // You can press Ctrl + S to toggle showing signatures at any time.
@@ -30,7 +31,7 @@ var Off = false;
 
 function GetGoogleStorage( callback ){	
 	chrome.storage.sync.get( {
-		Theme: 'wider',
+		Theme: 'small-impact',
 		ShowSignatures: true,
 		TheNewlyArrived: false,
 		PromotedContent: false,

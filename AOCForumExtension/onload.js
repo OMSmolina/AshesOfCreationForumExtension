@@ -102,10 +102,18 @@ function Onload( googleStorage )
 
 	if( ! googleStorage.ShowSignatures )
 		ForumWriter.ToggleVisibility( 'Signature' );
+	
 	if( ! googleStorage.PromotedContent )
 		ForumWriter.ToggleVisibility( 'promoted-content' );
-	if( ! googleStorage.Sidebar )
-		ForumWriter.ToggleSidebar( 'page-sidebar' );	
+	
+	var pos = (window.location.href).indexOf("profile");
+	var mPos = (window.location.href).indexOf("messages");
+	var bPos = (window.location.href).indexOf("badge");
+	if( pos == -1 && mPos == -1 && bPos == -1 ){
+		if( ! googleStorage.Sidebar ) {
+			ForumWriter.ToggleSidebar( 'page-sidebar' );	
+		}
+	}
 }
 
 // Call the Google values through a callback
